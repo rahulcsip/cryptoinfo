@@ -11,13 +11,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import Pagination from '@mui/material/Pagination';
-import {useNavigate} from 'react-router-dom'
+import Pagination from "@mui/material/Pagination";
+import { useNavigate } from "react-router-dom";
 const CoinTabel = () => {
   const [coin, setCoin] = useState([]);
   const [search, setsearch] = useState("");
-  const { currency,symbol } = CryptoState();
-const navigate = useNavigate()
+  const { currency, symbol } = CryptoState();
+  const navigate = useNavigate();
   const columns = [
     { id: "name", label: "Coin", minWidth: 170 },
     { id: "code", label: "Price", minWidth: 100 },
@@ -87,7 +87,7 @@ const navigate = useNavigate()
         />
 
         <Paper sx={{ width: "100%", overflow: "hidden" }}>
-          <TableContainer >
+          <TableContainer>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow>
@@ -103,50 +103,57 @@ const navigate = useNavigate()
                 </TableRow>
               </TableHead>
               <TableBody>
-                {coin.slice((page-1)*10, (page -1)*10 +10 ).map((row) => {
-                  const profit = row?.price_change_percentage_24h >= 0;
+                {coin
+                  .slice((page - 1) * 10, (page - 1) * 10 + 10)
+                  .map((row) => {
+                    const profit = row?.price_change_percentage_24h >= 0;
 
-                  return (
-                    <TableRow style={{}}>
-                      <TableCell
-                       onClick={() => navigate(`/info/${row?.id}`)}
-                      align="center"
-                        style={{ display: "flex", gap: 15 }}
-                        component="th"
-                        scope="row"
-                        label="Market Cap"
-                      >
-                        <img src={row?.image} height="50" width="50" />
-                        <div
-                          style={{ display: "flex", flexDirection: "column" }}
+                    return (
+                      <TableRow style={{}}>
+                        <TableCell
+                          onClick={() =>
+                            navigate(`/cryptoinfo/info/${row?.id}`)
+                          }
+                          align="center"
+                          style={{ display: "flex", gap: 15 }}
+                          component="th"
+                          scope="row"
+                          label="Market Cap"
                         >
-                          <span>{row?.symbol}</span>
-                          <span>{row?.name}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell align="center">
-                        <span>₹{row?.current_price.toFixed(2)}</span>
-                      </TableCell>
-                      <TableCell align="center">
-                        <span>{row?.current_price}</span>
-                      </TableCell>
-                      <TableCell align="center">
-                        <span>{row?.market_cap}</span>
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
+                          <img src={row?.image} height="50" width="50" />
+                          <div
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            <span>{row?.symbol}</span>
+                            <span>{row?.name}</span>
+                          </div>
+                        </TableCell>
+                        <TableCell align="center">
+                          <span>₹{row?.current_price.toFixed(2)}</span>
+                        </TableCell>
+                        <TableCell align="center">
+                          <span>{row?.current_price}</span>
+                        </TableCell>
+                        <TableCell align="center">
+                          <span>{row?.market_cap}</span>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
               </TableBody>
             </Table>
           </TableContainer>
 
           <Pagination
-          style={{marginTop:20}}
-          onChange={(_,value)=>{
-              setPage(value)
-              window.scroll(0,450)
-          }}
-          count={coin.length/10} variant="outlined" shape="rounded" />
+            style={{ marginTop: 20 }}
+            onChange={(_, value) => {
+              setPage(value);
+              window.scroll(0, 450);
+            }}
+            count={coin.length / 10}
+            variant="outlined"
+            shape="rounded"
+          />
         </Paper>
       </Container>
     </>

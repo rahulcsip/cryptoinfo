@@ -1,6 +1,6 @@
 {
   "name": "cryptoinfo",
-  "homepage": "https://rahulcsip.github.io/cryptoinfo",
+  "homepage": "https://rahulcsip.github.io/cryptoinfo/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +14,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.25.0",
     "chart.js": "^3.7.0",
-    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-alice-carousel": "^2.5.1",
     "react-chartjs-2": "^4.0.1",
@@ -25,6 +24,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

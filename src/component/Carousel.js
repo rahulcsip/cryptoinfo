@@ -28,7 +28,7 @@ const Carousel = () => {
 
   const items = trending.map((item, index) => {
     return (
-        <Link style={{ margin:20,display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center" }} to={`/info/${item.id}`}>
+        <Link style={{ margin:20,display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center" }} to={`/cryptoinfo/info/${item.id}`}>
         <img
           src={item?.image}
           alt={item?.name}
