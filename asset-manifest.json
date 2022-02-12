@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/cryptoinfo/static/css/main.2256122e.css",
+    "main.js": "/cryptoinfo/static/js/main.98a7009f.js",
+    "index.html": "/cryptoinfo/index.html",
+    "main.2256122e.css.map": "/cryptoinfo/static/css/main.2256122e.css.map",
+    "main.98a7009f.js.map": "/cryptoinfo/static/js/main.98a7009f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2256122e.css",
+    "static/js/main.98a7009f.js"
+  ]
+}
